@@ -1,0 +1,41 @@
+server:
+  tomcat:
+    min-spare-threads: 5
+    max-threads: 50
+    max-http-post-size: 20MB
+  port: 8081
+
+spring:
+  profiles:
+    active: dev
+    include: oss
+  cache:
+    ttl: 5m
+
+  servlet:
+    multipart:
+      max-request-size: 20MB
+      max-file-size: 20MB
+      enabled: true
+
+#
+#mybatis-plus:
+#  mapper-locations: classpath:mapper/**/*.xml
+#  configuration:
+#    map-underscore-to-camel-case: true
+#    aggressive-lazy-loading: false
+#    lazy-loading-enabled: true
+#    jdbc-type-for-null: null
+#  global-config:
+#    db-config:
+#      db-type: mysql
+#      id-type: auto
+
+security:
+  timeout: 30m
+  salt: U2FsdGVkX1/8BxHRqcj8UlHOEymF5YL7Nq2G9lvLm7k=
+
+task:
+  claim-timeout: 5m
+  status-timeout: 20m
+  max-running: 5

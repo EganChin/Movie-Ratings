@@ -1,0 +1,55 @@
+server:
+  tomcat:
+      min-spare-threads: 5
+      max-threads: 50
+      max-http-post-size: 20MB
+  port: 80
+
+#spring:
+#  datasource:
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    driverClassName: com.mysql.jdbc.Driver
+#    druid:
+#      url: jdbc:mysql://localhost:3306?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false
+#      username: mr
+#      password: 123456
+#      initial-size: 1
+#      min-idle: 1
+#      max-active: 3
+#      max-wait: 60000
+#      validation-query: select 1 from dual
+#      min-evictable-idle-time-millis: 300000
+#      test-while-idle: true
+#      test-on-borrow: false
+#      test-on-return: false
+#      stat-view-servlet:
+#        enabled: true
+#        url-pattern: /druid/*
+#        login-username: admin
+#        login-password: admin
+#      filter:
+#        stat:
+#          log-slow-sql: true
+#          slow-sql-millis: 2000
+#          merge-sql: true
+#        wall:
+#          config:
+#            multi-statement-allow: true
+
+  redis:
+    database: 0
+    timeout: 5s
+    lettuce:
+      pool:
+        min-idle: 2
+        max-active: 8
+        max-idle: 4
+
+
+
+logging:
+  level:
+    com.mr.web.dao: debug
+    com.mr.config: debug
+
+swagger: true

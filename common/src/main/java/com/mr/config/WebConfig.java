@@ -1,6 +1,5 @@
 package com.mr.config;
 
-import com.mr.enumeration.EnumConverterFactory;
 import com.mr.utils.GsonUtils;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
@@ -25,11 +24,6 @@ public class WebConfig extends WebMvcConfigurationSupport {
         GsonHttpMessageConverter converter = new GsonHttpMessageConverter();
         converter.setGson(GsonUtils.get());
         converters.add(converter);
-    }
-
-    @Override
-    protected void addFormatters(FormatterRegistry registry) {
-        registry.addConverterFactory(new EnumConverterFactory());
     }
 
     @Override

@@ -1,10 +1,7 @@
 package com.mr.utils;
 
-import com.mr.SpringfoxJsonToGsonSeializer;
-import com.mr.enumeration.*;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import springfox.documentation.spring.web.json.Json;
 
 /**
  * @author LiangYongjie
@@ -22,7 +19,6 @@ public class GsonUtils {
         private static final Gson INSTANCE =
             new GsonBuilder()
                 .serializeNulls()
-                .registerTypeAdapter(Json.class, new SpringfoxJsonToGsonSeializer())
                 .create();
     }
 }

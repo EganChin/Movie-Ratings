@@ -9,7 +9,7 @@ import org.springframework.web.filter.DelegatingFilterProxy;
  * @author LiangYongjie
  * @date 2019-01-07
  */
-@Configuration
+//@Configuration
 public class FilterConfig {
 
     @Bean

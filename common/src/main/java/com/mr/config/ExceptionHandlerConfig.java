@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.web.HttpMediaTypeNotSupportedException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
+import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
@@ -28,6 +29,11 @@ public class ExceptionHandlerConfig {
     public R handlerRRException(RRException e) {
         log.debug(e.getMessage(), e);
         return R.error(e.getCode(), e.getMessage());
+    }
+
+    @ExceptionHandler(MissingServletRequestParameterException.class)
+    public R handlerMissingServletRequestParameterException(MissingServletRequestParameterException e){
+        return R.error("参数缺失");
     }
 
     @ExceptionHandler(AuthorizationException.class)

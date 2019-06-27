@@ -1,25 +1,18 @@
 package com.mr.utils;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
  * @author LiangYongjie
  * @date 2019-01-05
  */
-@ApiModel("分页")
 public class Query {
 
-    @ApiModelProperty(value = "当前页", example = "1")
     private Integer pn = 1;
 
-    @ApiModelProperty(value = "页大小", example = "10")
     private Integer ps = 10;
 
-    @ApiModelProperty(hidden = true)
     private Integer offset;
 
-    @ApiModelProperty(hidden = true)
     private Integer total;
 
     public Query(Integer pn, Integer ps) {
