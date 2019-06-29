@@ -1,6 +1,7 @@
 package com.mr.web.controller;
 
 import com.mr.scala.MoviesAction;
+import com.mr.scala.SQLAction;
 import com.mr.utils.PageUtils;
 import com.mr.utils.Query;
 import com.mr.utils.R;
@@ -53,10 +54,15 @@ public class MovieController {
         return R.ok().put("page", getPage(action.getMovieByType(param), query));
     }
 
+
     private PageUtils getPage(String[] result, Query query) {
+
+        List<String> list = Arrays.asList(result);
+        if ((query.getPn() - 1) * query.getPs() >= list.size())
+            query.setPn((int) Math.ceil(list.size() / query.getPs() + 0.5));
         int begin = (query.getPn() - 1) * query.getPs();
         int end = query.getPn() * query.getPs();
-        List<String> list = Arrays.asList(result);
+        query.setTotal(list.size());
         return new PageUtils<>(query, list.subList(begin, end >= list.size() ? list.size() : end));
     }
 }

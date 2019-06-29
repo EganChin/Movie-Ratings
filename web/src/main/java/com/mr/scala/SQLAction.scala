@@ -6,41 +6,41 @@ import org.apache.spark.{SparkConf, SparkContext}
 /**
   * Created by zzy on 2019/6/28.
   */
-class SQLAction {
+class SQLAction extends HelloWorld {
 
-  val conf = new SparkConf()
-  conf.setAppName("Wow,My First Spark Programe1")
-  conf.setMaster("local")
+//  val conf = new SparkConf()
+//  conf.setAppName("Wow,My First Spark Programe1")
+//  conf.setMaster("local")
 
-  val sc = new SparkContext(conf)
+//  val sc = new SparkContext(conf)
   import org.apache.spark.sql.SparkSession
   val spark = SparkSession.builder().getOrCreate()
 
   val moviesDF = spark.read.format("jdbc")
-    .option("url", "jdbc:mysql://localhost:3306/spark")
+    .option("url", "jdbc:mysql://localhost:3306/mr")
     .option("driver", "com.mysql.jdbc.Driver")
     .option("dbtable", "movies")
     .option("user", "root")
     .option("password", "123456").load()
 
   val usersDF = spark.read.format("jdbc")
-    .option("url", "jdbc:mysql://localhost:3306/spark")
+    .option("url", "jdbc:mysql://localhost:3306/mr")
     .option("driver", "com.mysql.jdbc.Driver")
     .option("dbtable", "users")
     .option("user", "root")
     .option("password", "123456").load()
 
   val tagsDF = spark.read.format("jdbc")
-    .option("url", "jdbc:mysql://localhost:3306/spark")
+    .option("url", "jdbc:mysql://localhost:3306/mr")
     .option("driver", "com.mysql.jdbc.Driver")
     .option("dbtable", "tags")
     .option("user", "root")
     .option("password", "123456").load()
 
   val ratingsDF = spark.read.format("jdbc")
-    .option("url", "jdbc:mysql://localhost:3306/spark")
+    .option("url", "jdbc:mysql://localhost:3306/mr")
     .option("driver", "com.mysql.jdbc.Driver")
-    .option("dbtable", "mr")
+    .option("dbtable", "ratings")
     .option("user", "root")
     .option("password", "123456").load()
 

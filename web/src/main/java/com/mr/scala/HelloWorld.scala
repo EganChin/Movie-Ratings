@@ -14,7 +14,7 @@ class HelloWorld {
 
     conf.set("spark.driver.allowMultipleContexts", "true")
 
-    var sc = new SparkContext(conf)
+    val sc = new SparkContext(conf)
 
     //电影  movieId,title,genres
     var movies = sc.textFile("E:\\spark\\ml-latest\\movies.csv");
@@ -26,6 +26,8 @@ class HelloWorld {
     var tags = sc.textFile("E:\\spark\\ml-latest\\tags.csv");
 
     var users = sc.textFile("E:\\spark\\ml-latest\\users.csv");
+
+
 
 
     def main(args: Array[String]): Unit = {
