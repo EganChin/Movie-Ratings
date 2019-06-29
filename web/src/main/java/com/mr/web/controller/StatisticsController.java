@@ -1,4 +1,4 @@
-package com.mr.web;
+package com.mr.web.controller;
 
 import com.mr.scala.SQLAction;
 import com.mr.utils.R;
