@@ -14,7 +14,7 @@ class HelloWorld {
 
     conf.set("spark.driver.allowMultipleContexts", "true")
 
-    val sc = new SparkContext(conf)
+    val sc = SparkContext.getOrCreate(conf)
 
     //电影  movieId,title,genres
     var movies = sc.textFile("E:\\spark\\ml-latest\\movies.csv");
