@@ -16,11 +16,10 @@ class TagsAction extends HelloWorld{
   //      .mapValues(x => tranTimeToString(x.toLong))
   //      .foreach(println)
 
-  def getMoviesLastTag(id:String) : Unit = {
+  def getMoviesLastTag(id:String) : Array[((String,String),String)] = {
         tags.filter(x => x.split(",")(1).equals(id)).map(x => ((x.split(",")(0), x.split(",")(2)), x.split(",")(3)))
           .sortBy(_._2, false)
             .take(20)
-          .foreach(println)
   }
 
 }

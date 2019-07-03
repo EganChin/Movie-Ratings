@@ -20,7 +20,7 @@ class HelloWorld {
     var movies = sc.textFile("E:\\spark\\ml-latest\\movies.csv");
 
     //用户观看对电影的评级 userId,movieId,rating,timestamp
-    var ratings = sc.textFile("E:\\spark\\ml-latest\\ratings1.csv");
+    var ratings = sc.textFile("E:\\spark\\ml-latest\\ratings.csv");
 
     //用户对该电影打的标签 userId,movieId,tag,timestamp
     var tags = sc.textFile("E:\\spark\\ml-latest\\tags.csv");
